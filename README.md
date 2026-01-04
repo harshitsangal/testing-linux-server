@@ -105,39 +105,46 @@ As root (or using `sudo`), run the following commands:
 
 
 # 1. Create users Sarah and mike (login names are case-sensitive)
-sudo useradd -m -s /bin/bash Sarah
-sudo useradd -m -s /bin/bash mike
+ - sudo useradd -m -s /bin/bash Sarah
+ - sudo useradd -m -s /bin/bash Mike
 
 <img width="340" height="49" alt="image" src="https://github.com/user-attachments/assets/8cae886d-84c6-465f-874a-f6acee5e7d2d" />
 
 
 # 2. Set passwords (interactive)
-sudo passwd Sarah
-sudo passwd mike
+ - sudo passwd Sarah
+ - sudo passwd Mike
+
+<img width="385" height="131" alt="image" src="https://github.com/user-attachments/assets/16e7f10e-eabc-4997-9569-b423446611a8" />
+
 
 # 3. Create workspace directories
-sudo mkdir -p /home/Sarah/workspace
-sudo mkdir -p /home/mike/workspace
+ - sudo mkdir -p /home/Sarah/workspace
+ - sudo mkdir -p /home/Mike/workspace
 
 # 4. Set ownership & permissions
-sudo chown -R Sarah:Sarah /home/Sarah/workspace
-sudo chown -R mike:mike /home/mike/workspace
-sudo chmod 700 /home/Sarah/workspace
-sudo chmod 700 /home/mike/workspace
+ - sudo chown -R Sarah:Sarah /home/Sarah/workspace
+ - sudo chown -R Mike:Mike /home/Mike/workspace
+ - sudo chmod 700 /home/Sarah/workspace
+ - sudo chmod 700 /home/Mike/workspace
 
 # 5. Install password policy module (Debian/Ubuntu)
-sudo apt update
-sudo apt install libpam-pwquality
+ - sudo apt update
+ - sudo apt install libpam-pwquality
 
 # 6. Edit PAM config to enforce password complexity
 # (modify /etc/pam.d/common-password as shown above)
 
 # 7. Set password expiration policy
-sudo chage -M 30 Sarah
-sudo chage -M 30 mike
-sudo chage -m 7 -W 5 Sarah
-sudo chage -m 7 -W 5 mike
+ - sudo chage -M 30 Sarah
+ - sudo chage -M 30 Mike
+ - sudo chage -m 7 -W 5 Sarah
+ - sudo chage -m 7 -W 5 Mike
 
 # 8. Verify aging settings
-sudo chage -l Sarah
-sudo chage -l mike
+ - sudo chage -l Sarah
+ - sudo chage -l Mike
+
+
+<img width="544" height="320" alt="image" src="https://github.com/user-attachments/assets/d3df9280-5c49-42aa-90ce-ff814a9511b9" />
+
