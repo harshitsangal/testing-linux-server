@@ -103,7 +103,7 @@ Set up secure user accounts for new developers (Sarah and Mike), create isolated
 
 As root (or using `sudo`), run the following commands:
 
-```bash
+
 # 1. Create users Sarah and mike (login names are case-sensitive)
 sudo useradd -m -s /bin/bash Sarah
 sudo useradd -m -s /bin/bash mike
