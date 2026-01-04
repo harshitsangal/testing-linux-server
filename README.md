@@ -104,6 +104,40 @@ Set up secure user accounts for new developers (Sarah and Mike), create isolated
 As root (or using `sudo`), run the following commands:
 
 ```bash
-# Create users Sarah and mike (login names are case-sensitive)
+# 1. Create users Sarah and mike (login names are case-sensitive)
 sudo useradd -m -s /bin/bash Sarah
 sudo useradd -m -s /bin/bash mike
+
+<img width="340" height="49" alt="image" src="https://github.com/user-attachments/assets/8cae886d-84c6-465f-874a-f6acee5e7d2d" />
+
+
+# 2. Set passwords (interactive)
+sudo passwd Sarah
+sudo passwd mike
+
+# 3. Create workspace directories
+sudo mkdir -p /home/Sarah/workspace
+sudo mkdir -p /home/mike/workspace
+
+# 4. Set ownership & permissions
+sudo chown -R Sarah:Sarah /home/Sarah/workspace
+sudo chown -R mike:mike /home/mike/workspace
+sudo chmod 700 /home/Sarah/workspace
+sudo chmod 700 /home/mike/workspace
+
+# 5. Install password policy module (Debian/Ubuntu)
+sudo apt update
+sudo apt install libpam-pwquality
+
+# 6. Edit PAM config to enforce password complexity
+# (modify /etc/pam.d/common-password as shown above)
+
+# 7. Set password expiration policy
+sudo chage -M 30 Sarah
+sudo chage -M 30 mike
+sudo chage -m 7 -W 5 Sarah
+sudo chage -m 7 -W 5 mike
+
+# 8. Verify aging settings
+sudo chage -l Sarah
+sudo chage -l mike
