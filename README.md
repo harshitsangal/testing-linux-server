@@ -87,12 +87,12 @@ Optionally (but recommended):
 
 To collect logs automatically (e.g. daily), set up a cron job. Example (runs every day at 23:59):
 
-```cron
+
 59 23 * * * /testing-linux-server/sys_monitor.sh
 
 <img width="400" height="53" alt="image" src="https://github.com/user-attachments/assets/4225ad04-01f7-431d-b624-0cd8b944349b" />
 
-# Task 2 — User Management & Access Control  
+## Task 2 — User Management & Access Control  
 
 ## Objective  
 Set up secure user accounts for new developers (Sarah and Mike), create isolated working directories for each, enforce strict access permissions, and implement a password policy with expiration and complexity.
