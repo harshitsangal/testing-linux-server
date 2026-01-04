@@ -176,7 +176,7 @@ Automate weekly backups for Apache (Sarah) and Nginx (Mike) web servers — incl
 
 ## 📂 File / Directory Setup  
 
-```bash
+
 sudo mkdir -p /backups
 sudo chmod 755 /backups
 
