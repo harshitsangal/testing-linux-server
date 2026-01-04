@@ -148,3 +148,36 @@ As root (or using `sudo`), run the following commands:
 
 <img width="544" height="320" alt="image" src="https://github.com/user-attachments/assets/d3df9280-5c49-42aa-90ce-ff814a9511b9" />
 
+
+# Task 3 — Backup Configuration for Web Servers
+
+## Objective  
+Automate weekly backups for Apache (Sarah) and Nginx (Mike) web servers — including both configuration files and document-roots — to ensure data integrity and support disaster recovery.
+
+---
+
+## 🧰 Backup Setup Summary  
+
+- Backups stored under `/backups/` directory.  
+- Backups run automatically **every Tuesday at 12:00 AM (00:00)**.  
+- Backup filenames include server name and date: e.g. `apache_backup_YYYY-MM-DD.tar.gz`, `nginx_backup_YYYY-MM-DD.tar.gz`.  
+- After each backup, script verifies integrity by listing contents of archive, and logs success/failure and content list to log files.  
+
+
+---
+
+## ✅ Prerequisites  
+
+- Running Linux server with `tar`, `cron` installed (these are default on most distributions). :contentReference[oaicite:0]{index=0}  
+- Root privileges (or sudo access) to create backup directory, scripts, and set up cron jobs.  
+- Enough disk space under `/backups/` to store backup archives.  
+
+---
+
+## 📂 File / Directory Setup  
+
+```bash
+sudo mkdir -p /backups
+sudo chmod 755 /backups
+
+<img width="677" height="118" alt="image" src="https://github.com/user-attachments/assets/2ffeb8bb-851d-49b7-853b-1d905d84d2ba" />
